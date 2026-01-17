@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags (Requirement 2) -->
+    <title>Ray Tracing Rendering - A Visual Guide</title>
+    <meta name="description" content="Explore the fundamentals of ray tracing rendering including solid colors, shadows, transparency, and mirror reflections.">
+    <meta name="keywords" content="ray tracing, rendering, computer graphics, shadows, reflections, transparency">
+    <meta name="author" content="CS5610 Web Development">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://example.com/ray-tracing">
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Ray Tracing Rendering - A Visual Guide">
+    <meta property="og:description" content="Explore ray tracing rendering techniques">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar (Requirement 1) -->
+    <nav class="navbar">
+        <div class="nav-brand">Ray Tracing</div>
+        <ul class="nav-links">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#diffuse">Diffuse</a></li>
+            <li><a href="#phong">Phong</a></li>
+            <li><a href="#refraction">Refraction</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content (Requirement 1) -->
+    <main>
+        <h1>Ray Tracing Rendering</h1>
+        <p>Ray tracing is a rendering technique that simulates the way light interacts with objects to produce realistic images. Below we explore four key aspects of ray tracing.</p>
+
+        <!-- Section 1: Diffuse Color -->
+        <section id="diffuse">
+            <h2>1. Diffuse Color (Lambertian Reflection)</h2>
+            <p>Diffuse reflection simulates how rough surfaces scatter light equally in all directions. This is based on <strong>Lambert's cosine law</strong>: the intensity of reflected light is proportional to the cosine of the angle between the surface normal and the light direction.</p>
+            <p>The formula is: <code>I = k_d * I_light * max(0, N . L)</code></p>
+            <ul>
+                <li><code>k_d</code> - diffuse reflection coefficient (material color)</li>
+                <li><code>N</code> - surface normal vector</li>
+                <li><code>L</code> - light direction vector</li>
+                <li><code>N . L</code> - dot product gives cosine of angle</li>
+            </ul>
+            <p>This creates the soft, matte appearance seen on surfaces like paper, chalk, or unpolished wood.</p>
+            <img src="assets/showcase_diffuse.png" alt="Ray traced spheres showing diffuse Lambertian reflection with soft matte surfaces" class="showcase-image">
+        </section>
+
+        <!-- Section 2: Phong Shading -->
+        <section id="phong">
+            <h2>2. Phong Shading Model</h2>
+            <p>The <strong>Phong reflection model</strong> combines three components to create realistic lighting:</p>
+            <ul>
+                <li><strong>Ambient</strong> - constant background illumination: <code>I_a * k_a</code></li>
+                <li><strong>Diffuse</strong> - Lambertian reflection (see above): <code>I_d * k_d * (N . L)</code></li>
+                <li><strong>Specular</strong> - shiny highlights: <code>I_s * k_s * (R . V)^n</code></li>
+            </ul>
+            <p>The specular term creates bright highlights on shiny surfaces. The exponent <code>n</code> (shininess) controls how tight the highlight is - higher values create smaller, sharper highlights.</p>
+            <p>Full equation: <code>I = I_a*k_a + I_d*k_d*(N.L) + I_s*k_s*(R.V)^n</code></p>
+            <img src="assets/showcase_specular.png" alt="Ray traced metallic spheres demonstrating Phong shading with specular highlights" class="showcase-image">
+        </section>
+
+        <!-- Section 3: Refractive Material -->
+        <section id="refraction">
+            <h2>3. Refractive Materials</h2>
+            <p>Refraction occurs when light passes through transparent materials like glass or water. The light bends according to <strong>Snell's Law</strong>:</p>
+            <p><code>n_1 * sin(theta_1) = n_2 * sin(theta_2)</code></p>
+            <ul>
+                <li><code>n_1, n_2</code> - indices of refraction for each medium</li>
+                <li><code>theta_1</code> - angle of incidence</li>
+                <li><code>theta_2</code> - angle of refraction</li>
+            </ul>
+            <p>Common indices: Air (1.0), Water (1.33), Glass (1.5), Diamond (2.42)</p>
+            <p>When light travels from a denser to less dense medium at a steep angle, <strong>total internal reflection</strong> occurs - no light passes through.</p>
+            <img src="assets/showcase_refraction.png" alt="Ray traced glass sphere showing light refraction in a checkered room" class="showcase-image">
+        </section>
+
+        <!-- Section 4: Reflective Material -->
+        <section id="reflection">
+            <h2>4. Reflective Materials</h2>
+            <p>Perfect reflection (mirror-like surfaces) follows the <strong>law of reflection</strong>: the angle of incidence equals the angle of reflection.</p>
+            <p>The reflected ray direction is calculated as: <code>R = I - 2(N . I)N</code></p>
+            <ul>
+                <li><code>I</code> - incident ray direction</li>
+                <li><code>N</code> - surface normal</li>
+                <li><code>R</code> - reflected ray direction</li>
+            </ul>
+            <p>In ray tracing, we recursively trace reflected rays to capture multiple bounces. The <strong>Fresnel effect</strong> makes surfaces more reflective at grazing angles - this is why you can see through a window straight on, but it reflects like a mirror when viewed at an angle.</p>
+            <img src="assets/showcase_reflection.png" alt="Ray traced scene with reflective sphere showing mirror-like reflections of surrounding objects" class="showcase-image">
+        </section>
+
+        <!-- Requirement 1: List of 10 Most Useful HTML Tags -->
+        <section id="html-tags">
+            <h2>10 Most Useful HTML Tags</h2>
+            <ol>
+                <li><code>&lt;div&gt;</code> - Generic container for grouping and styling content</li>
+                <li><code>&lt;span&gt;</code> - Inline container for styling text portions</li>
+                <li><code>&lt;a&gt;</code> - Creates hyperlinks for navigation</li>
+                <li><code>&lt;img&gt;</code> - Embeds images into the page</li>
+                <li><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> / <code>&lt;li&gt;</code> - Creates lists</li>
+                <li><code>&lt;p&gt;</code> - Defines paragraphs of text</li>
+                <li><code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> - Heading hierarchy for structure</li>
+                <li><code>&lt;form&gt;</code> / <code>&lt;input&gt;</code> - User input and data collection</li>
+                <li><code>&lt;section&gt;</code> / <code>&lt;article&gt;</code> - Semantic content grouping</li>
+                <li><code>&lt;nav&gt;</code> / <code>&lt;header&gt;</code> / <code>&lt;footer&gt;</code> - Page layout semantics</li>
+            </ol>
+        </section>
+
+        <!-- Requirement 2: SEO Important Header Tags -->
+        <section id="seo-tags">
+            <h2>Important SEO Header Tags</h2>
+            <p>These meta and header tags are crucial for search engine optimization:</p>
+            <ul>
+                <li><code>&lt;title&gt;</code> - Page title shown in search results (most important)</li>
+                <li><code>&lt;meta name="description"&gt;</code> - Summary shown in search snippets</li>
+                <li><code>&lt;meta name="keywords"&gt;</code> - Relevant keywords (less important now)</li>
+                <li><code>&lt;meta name="robots"&gt;</code> - Controls crawler behavior</li>
+                <li><code>&lt;link rel="canonical"&gt;</code> - Prevents duplicate content issues</li>
+                <li><code>&lt;meta name="viewport"&gt;</code> - Mobile-friendliness signal</li>
+                <li><code>&lt;meta property="og:*"&gt;</code> - Open Graph for social sharing</li>
+                <li><code>&lt;h1&gt;</code> - Main heading (one per page, contains keywords)</li>
+                <li><code>&lt;meta charset&gt;</code> - Character encoding declaration</li>
+                <li><code>&lt;html lang&gt;</code> - Language attribute for accessibility/SEO</li>
+            </ul>
+        </section>
+
+        <!-- Requirement 3: 3x3 Grid using only divs and spans (no CSS, no table) -->
+        <section id="grid-section">
+            <h2>3x3 Grid Layout (divs and spans only, no CSS)</h2>
+            <p>This grid uses only the display behavior of div (block) and span (inline) elements:</p>
+            <div>
+                <span>Cell 1&nbsp;&nbsp;</span><span>Cell 2&nbsp;&nbsp;</span><span>Cell 3</span>
+            </div>
+            <div>
+                <span>Cell 4&nbsp;&nbsp;</span><span>Cell 5&nbsp;&nbsp;</span><span>Cell 6</span>
+            </div>
+            <div>
+                <span>Cell 7&nbsp;&nbsp;</span><span>Cell 8&nbsp;&nbsp;</span><span>Cell 9</span>
+            </div>
+        </section>
+
+        <!-- Requirement 4: Box Model Gallery -->
+        <section id="box-model">
+            <h2>CSS Box Model Gallery</h2>
+            <p>Each row demonstrates different border, margin, and padding values:</p>
+
+            <h3>Row 1: Border Variations</h3>
+            <div class="box-row">
+                <div class="box border-0">border: 0px</div>
+                <div class="box border-5">border: 5px</div>
+                <div class="box border-10">border: 10px</div>
+            </div>
+
+            <h3>Row 2: Margin Variations</h3>
+            <div class="box-row">
+                <div class="box margin-0">margin: 0px</div>
+                <div class="box margin-5">margin: 5px</div>
+                <div class="box margin-10">margin: 10px</div>
+            </div>
+
+            <h3>Row 3: Padding Variations</h3>
+            <div class="box-row">
+                <div class="box padding-0">padding: 0px</div>
+                <div class="box padding-5">padding: 5px</div>
+                <div class="box padding-10">padding: 10px</div>
+            </div>
+        </section>
+
+        <!-- Requirement 5: Font Sizes with Inline Styling -->
+        <section id="font-sizes">
+            <h2>Font Size Units Comparison</h2>
+            <ul class="font-list">
+                <li style="font-size: 16px;">16px (absolute) - Use for fixed-size elements like icons or when pixel-perfect sizing is needed, e.g., a button that must be exactly 16px tall.</li>
+                <li style="font-size: 1rem;">1rem (relative to root) - Use for consistent sizing across components, e.g., body text that scales with user's browser settings.</li>
+                <li style="font-size: 1.2em;">1.2em (relative to parent) - Use for proportional scaling within a component, e.g., making a heading 1.2x larger than its container's font.</li>
+                <li style="font-size: 120%;">120% (relative percentage) - Use similar to em, e.g., slightly larger text in a callout box that scales with parent.</li>
+                <li style="font-size: 2vw;">2vw (viewport width) - Use for responsive typography that scales with screen size, e.g., hero text that fills the viewport proportionally.</li>
+                <li style="font-size: large;">large (keyword, relative) - Use for semantic sizing without specific values, e.g., emphasizing text in a way that respects user preferences.</li>
+            </ul>
+        </section>
+
+        <!-- Requirement 6: Positioning Options (Creative Section) -->
+        <section id="positioning">
+            <h2>CSS Positioning Demonstration</h2>
+            <p>This section demonstrates four positioning options:</p>
+
+            <div class="position-container">
+                <!-- Static (default) -->
+                <div class="pos-static">
+                    <strong>Static (default)</strong><br>
+                    Elements flow normally in the document. Use when no special positioning is needed.
+                </div>
+
+                <!-- Relative -->
+                <div class="pos-relative">
+                    <strong>Relative</strong><br>
+                    Offset from normal position. Use when you need to nudge an element or create a positioning context for absolute children.
+                </div>
+
+                <!-- Absolute -->
+                <div class="pos-absolute">
+                    <strong>Absolute</strong><br>
+                    Removed from flow, positioned relative to nearest positioned ancestor. Use for overlays, tooltips, or precise placement.
+                </div>
+
+                <!-- Fixed is demonstrated by a floating element -->
+                <div class="pos-fixed">
+                    Fixed: Always visible (top-right corner). Use for persistent UI like "back to top" buttons.
+                </div>
+            </div>
+
+            <p><em>Note: The footer below uses <code>position: sticky</code> (or fixed fallback) to stay at the bottom of the viewport.</em></p>
+        </section>
+    </main>
+
+    <!-- Footer (Requirement 1 + Requirement 6: sticky/fixed at bottom) -->
+    <footer>
+        <p>CS5610 Web Development - HTML/CSS/JS Self Assessment</p>
+        <p>Ray Tracing Rendering Guide | 2026</p>
+    </footer>
+</body>
+</html>
