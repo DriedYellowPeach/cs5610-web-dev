@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Neil Wang" />
+    <meta
+      name="description"
+      content="Neil Wang's personal homepage - Software Developer passionate about system programming, graphics, and cloud-native technologies"
+    />
+    <meta name="theme-color" content="#181818" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <title>Neil Wang | Home</title>
+  </head>
+  <body>
+    <header class="navigation">
+      <div class="container">
+        <a href="index.html" class="brand">
+          <span class="brand-icon">&#127794;</span>
+          <span>Neil's Pine</span>
+        </a>
+        <nav>
+          <a href="index.html" class="nav-link active">Me</a>
+          <a href="work.html" class="nav-link">Game</a>
+          <a href="ai-page.html" class="nav-link">AI Page</a>
+          <div class="theme-toggle">
+            <button
+              type="button"
+              id="theme-toggle-btn"
+              aria-label="Toggle theme"
+            >
+              &#127769;
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="page-header fade-in">
+          <h1>Hello! I'm Neil</h1>
+          <p class="subtitle">
+            Software Developer | Graphics Enthusiast | Cloud Native Explorer
+          </p>
+        </section>
+
+        <section class="fade-in fade-in-delay-1">
+          <h2>About Me</h2>
+          <div class="about-section">
+            <div class="content">
+              <p>
+                I'm Neil Wang, a passionate enthusiast of system programming,
+                cloud-native technologies, and computer graphics programming.
+                Currently, I am pursuing my Master's degree in Computer Science
+                at Northeastern University.
+              </p>
+              <p>
+                I love building things from scratch and understanding how
+                systems work at a low level. Whether it's implementing a ray
+                tracer in Rust or configuring my perfect Neovim setup, I enjoy
+                the process of crafting efficient and elegant solutions.
+              </p>
+            </div>
+            <div class="profile-image">
+              <img src="images/profile.jpg" alt="Neil Wang profile photo" />
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="fade-in fade-in-delay-2">
+          <h2>My Interests</h2>
+          <div class="interests-grid">
+            <article class="interest-card">
+              <h3><span class="icon">&#128187;</span> Computer Graphics</h3>
+              <p>
+                I'm deeply interested in rendering techniques, ray tracing, and
+                real-time graphics. I've built a ray tracer in Rust and enjoy
+                exploring shader programming.
+              </p>
+            </article>
+
+            <article class="interest-card">
+              <h3><span class="icon">&#9881;</span> System Programming</h3>
+              <p>
+                Low-level programming fascinates me. I enjoy working with Rust
+                and C, understanding memory management, and building efficient
+                systems.
+              </p>
+            </article>
+
+            <article class="interest-card">
+              <h3><span class="icon">&#9729;</span> Cloud Native</h3>
+              <p>
+                I'm exploring Kubernetes, containerization, and distributed
+                systems. Building scalable and resilient applications is an
+                exciting challenge.
+              </p>
+            </article>
+
+            <article class="interest-card">
+              <h3><span class="icon">&#128690;</span> Cycling</h3>
+              <p>
+                Outside of coding, I love cycling. There's something therapeutic
+                about being on the road, and I've become quite skilled at fixing
+                flat tires!
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="fade-in fade-in-delay-3">
+          <h2>Skills</h2>
+          <ul class="skills-list">
+            <li>Rust</li>
+            <li>C/C++</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>Python</li>
+            <li>Go</li>
+            <li>OpenGL</li>
+            <li>WebGL</li>
+            <li>Docker</li>
+            <li>Kubernetes</li>
+            <li>Linux</li>
+            <li>Neovim</li>
+          </ul>
+        </section>
+
+        <hr />
+
+        <section>
+          <h2>Terminal</h2>
+          <div class="typing-container">
+            <span id="typing-text"></span>
+            <span class="typing-cursor"></span>
+          </div>
+        </section>
+
+        <hr />
+
+        <section>
+          <h2>Work Samples</h2>
+          <div class="work-samples-grid">
+            <article class="project-card">
+              <h3>&#127918; Brow Control</h3>
+              <p class="project-description">
+                An innovative game that lets you play using only your eyebrows!
+                Using MediaPipe face mesh detection, it tracks your eyebrow
+                movements in real-time to control the character.
+              </p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">MediaPipe</span>
+                <span class="tag">WebGL</span>
+              </div>
+              <a href="work.html" class="button">Play Game</a>
+            </article>
+
+            <article class="project-card">
+              <h3>&#127752; Ray Tracer</h3>
+              <p class="project-description">
+                A physically-based ray tracer built from scratch in Rust with
+                reflection, refraction, soft shadows, and global illumination.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Rust</span>
+                <span class="tag">Computer Graphics</span>
+                <span class="tag">Ray Tracing</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>&#128421; 3D Spinning Box</h3>
+              <p class="project-description">
+                A software renderer creating a shiny spinning box effect using
+                only image processing and matrix multiplication. No GPU
+                required!
+              </p>
+              <div class="project-tags">
+                <span class="tag">Rust</span>
+                <span class="tag">Linear Algebra</span>
+                <span class="tag">Software Rendering</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <hr />
+
+        <section>
+          <h2>Contact</h2>
+          <div class="contact-links">
+            <a
+              href="https://github.com/neilwang"
+              class="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>&#128279;</span> GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/neilwang"
+              class="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>&#128101;</span> LinkedIn
+            </a>
+            <a href="mailto:wang.neil@northeastern.edu" class="contact-link">
+              <span>&#9993;</span> Email
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Neil Wang. All rights reserved.</p>
+        <p>Built with vanilla HTML, CSS, and JavaScript</p>
+      </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

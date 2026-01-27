@@ -1,0 +1,84 @@
+/* Navigation for Game Page */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--tokyo-night-bg-dark);
+  height: 60px;
+  border-bottom: 2px dashed var(--tokyo-night-fg-purple);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navigation .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.navigation .brand-icon {
+  font-size: 1.5rem;
+}
+
+.navigation nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navigation .nav-link {
+  padding: 0.5rem 0.75rem;
+  color: var(--tokyo-night-fg-blue);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.navigation .nav-link:hover {
+  color: white;
+}
+
+.navigation .nav-link.active {
+  color: var(--tokyo-night-fg-purple);
+  background: var(--tokyo-night-bg-light);
+  border-color: var(--tokyo-night-fg-purple);
+}
+
+/* Adjust main content for fixed nav */
+.page-container {
+  padding-top: 60px;
+}
+
+/* Back link */
+.back-link {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--tokyo-night-bg-light);
+  border: 1px solid var(--tokyo-night-fg-purple);
+  border-radius: 10px;
+  color: var(--tokyo-night-fg-blue);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.back-link:hover {
+  color: white;
+  border-color: var(--tokyo-night-fg-blue);
+}

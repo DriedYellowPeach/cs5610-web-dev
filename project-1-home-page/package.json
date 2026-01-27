@@ -1,0 +1,17 @@
+{
+  "name": "project-1-home-page",
+  "version": "1.0.0",
+  "description": "Neil's personal homepage for CS5610 Web Development",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint js/",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "author": "Neil Wang",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  }
+}

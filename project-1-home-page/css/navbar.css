@@ -1,0 +1,102 @@
+/* Navigation */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--navbar-background-color);
+  height: var(--navbar-height);
+  border-bottom: 2px dashed var(--border-color);
+}
+
+.navigation .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Brand */
+.navigation .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--font-color-bright);
+  text-decoration: none;
+}
+
+.navigation .brand:hover {
+  color: var(--font-color-bright);
+}
+
+.navigation .brand-icon {
+  font-size: 1.5rem;
+}
+
+.navigation .brand span {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
+  .navigation .brand span {
+    display: inline;
+  }
+}
+
+/* Nav Links */
+.navigation nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navigation .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  color: var(--navbar-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.navigation .nav-link:hover {
+  color: var(--navbar-color-hover);
+}
+
+.navigation .nav-link.active {
+  color: var(--navbar-highlight);
+  background: var(--button-background-color);
+  border-color: var(--button-border-color);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle button {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.theme-toggle button:hover {
+  background: var(--button-background-color);
+  border-color: var(--button-border-color);
+}
+
+@media screen and (min-width: 700px) {
+  .navigation .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}

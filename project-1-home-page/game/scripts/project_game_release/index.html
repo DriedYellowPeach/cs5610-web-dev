@@ -1,0 +1,83 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        background: linear-gradient(
+            135deg,
+            white 0%,
+            white 49%,
+            black 49%,
+            black 51%,
+            white 51%,
+            white 100%
+          )
+          repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-size: 20px 20px;
+      }
+      canvas {
+        background-color: gray;
+        display: block;
+      }
+      button {
+        margin: 20px;
+        padding: 10px 20px;
+        background: #eee;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+      }
+      button:active {
+        transform: scale(0.75);
+      }
+    </style>
+    <title>Wasm Example</title>
+  </head>
+
+  <body>
+    <!-- HACK: this will create a canvas at the end of the page -->
+    <!-- But I am using column reverse to make the page feel normal -->
+    <!-- check https://bevy-cheatbook.github.io/platforms/wasm/webpage.html to customize canvas -->
+    <script type="module">
+      import "./restart-audio-context.js";
+      import init from "./project_game.js";
+      init();
+
+      let once = false;
+      const game_canvas = document.getElementById("project-game");
+      const observer_callback = (_mutations, _observer) => {
+        if (!once) {
+          game_canvas.style.width = "100%";
+          game_canvas.style.height = "100%";
+          once = true;
+        }
+      };
+      const observer = new MutationObserver(observer_callback);
+      const config = { attributeFilter: ["width", "height"] };
+      observer.observe(game_canvas, config);
+    </script>
+
+    <canvas class="bevy-instance__canvas" id="project-game"></canvas>
+
+    <button id="jump-btn">Jump</button>
+    <button id="down-btn">Down</button>
+
+    <script>
+      document.getElementById("jump-btn").addEventListener("click", () => {
+        const event = new CustomEvent("move", {
+          detail: { up: 0.6 },
+        });
+        document.dispatchEvent(event);
+      });
+      document.getElementById("down-btn").addEventListener("click", () => {
+        const event = new CustomEvent("move", {
+          detail: { down: 0.6 },
+        });
+        document.dispatchEvent(event);
+      });
+    </script>
+  </body>
+</html>
