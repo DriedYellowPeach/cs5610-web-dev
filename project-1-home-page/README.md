@@ -12,7 +12,7 @@ CS5610 Web Development - Northeastern University
 
 ## Project Objective
 
-Create a personal homepage that showcases who I am, my interests, and my work samples. The project demonstrates proficiency in:
+Create a personal homepage that showcases who I am, my interests, and my projects. The project demonstrates proficiency in:
 
 - Semantic HTML5 markup
 - Modern CSS3 with flexbox and grid layouts
@@ -22,12 +22,12 @@ Create a personal homepage that showcases who I am, my interests, and my work sa
 
 ## Features
 
-- **About Me Page**: Introduction, interests, and skills showcase
-- **Work Samples Page**: Portfolio of projects including an embedded game
-- **AI-Generated Page**: Demonstrates AI-human collaboration with an interactive chat demo
-- **Dark Theme**: Modern dark color scheme following the pine-heads design
-- **Typing Effect**: Terminal-style typing animation (original JS functionality)
-- **Interactive Chat Demo**: Simulated AI assistant conversation
+- **About Me Page**: Introduction with expandable panels showcasing experience and projects
+- **Project Showcases**: Carousels displaying Neovim IDE, Arch Linux Ricing, and Ray Tracer projects
+- **Game Page**: Interactive Brow Control game using MediaPipe facial recognition
+- **Dark/Light Theme Toggle**: Switch between dark and light color schemes
+- **Tokyo Night Theme**: Special theme for the game page
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
 
 ## Screenshot
 
@@ -38,29 +38,34 @@ Create a personal homepage that showcases who I am, my interests, and my work sa
 ```
 project-1-home-page/
 ├── css/
-│   ├── variables.css    # CSS custom properties
-│   ├── main.css         # Base styles
+│   ├── variables.css    # CSS custom properties and themes
+│   ├── main.css         # Base styles and footer
 │   ├── navbar.css       # Navigation styles
-│   ├── pages.css        # Page-specific styles
-│   └── ai-page.css      # AI page styles
+│   ├── panels.css       # Expandable panels and carousels
+│   └── game-nav.css     # Game page navigation styles
 ├── js/
-│   ├── main.js          # Main functionality (theme, typing effect)
-│   └── ai-chat.js       # AI chat demo functionality
+│   └── main.js          # Theme toggle, panels, carousels
 ├── images/
+│   ├── icons/           # Header/footer icons (SVG)
+│   ├── neovim/          # Neovim project screenshots
+│   ├── arch/            # Arch Linux ricing screenshots
+│   ├── ray-tracer/      # Ray tracer renders
 │   ├── favicon.svg      # Site favicon
 │   └── profile.jpg      # Profile photo
-├── game/                # Brow Control game embed
-│   ├── index.html
+├── game/                # Brow Control game
 │   ├── style.css
 │   ├── scripts/
-│   └── third-party/
+│   │   ├── game.js      # Game logic (Bevy WASM)
+│   │   └── mediapipe.js # Face mesh detection
+│   └── third-party/     # MediaPipe libraries
+├── assets/              # Game assets (WASM, textures)
 ├── index.html           # Home/About Me page
-├── work.html            # Work samples page
-├── ai-page.html         # AI-generated page
+├── work.html            # Game page
 ├── package.json
 ├── .eslintrc.json
 ├── .prettierrc
 ├── LICENSE
+├── REQUIREMENTS.md
 └── README.md
 ```
 
@@ -114,11 +119,15 @@ npx serve
 
 Then open `http://localhost:8000` in your browser.
 
+**Note**: The game page requires HTTPS to access the camera for facial recognition. Deploy to GitHub Pages or use a local HTTPS server for full functionality.
+
 ## Technologies Used
 
 - HTML5
 - CSS3 (Flexbox, Grid, Custom Properties)
 - JavaScript ES6+ (Modules, Classes, Arrow Functions, Template Literals)
+- MediaPipe Face Mesh for facial recognition
+- Bevy Game Engine (compiled to WebAssembly)
 - ESLint for code linting
 - Prettier for code formatting
 
@@ -130,11 +139,9 @@ This project was developed with assistance from Claude (Anthropic). The AI was u
 - **Usage**:
   - Code structure and organization suggestions
   - CSS styling based on reference design (pine-heads)
-  - AI page content generation
-  - Chat demo response generation
+  - Expandable panel and carousel implementation
+  - Game integration with MediaPipe facial recognition
   - README documentation
-
-The AI-generated page (`ai-page.html`) explicitly demonstrates AI-human collaboration and includes a disclaimer about AI assistance.
 
 All final decisions, refinements, and code reviews were made by the human developer.
 

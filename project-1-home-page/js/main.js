@@ -1,6 +1,6 @@
 /**
  * Main JavaScript module for Neil's Homepage
- * Handles navigation, theme toggle, and typing effect
+ * Handles theme toggle, panels, and carousels
  */
 
 // Theme management
@@ -31,9 +31,11 @@ const ThemeManager = {
   updateToggleButton(theme) {
     const button = document.getElementById("theme-toggle-btn");
     if (button) {
-      // Moon for dark mode, sun for light mode
-      button.textContent =
-        theme === this.DARK ? "\u{1F319}" : "\u{2600}\u{FE0F}";
+      const icon = button.querySelector(".theme-icon");
+      if (icon) {
+        // Sun for dark mode (click to go light), moon for light mode
+        icon.textContent = theme === this.DARK ? "\u2600\uFE0F" : "\u{1F319}";
+      }
       button.setAttribute(
         "aria-label",
         `Switch to ${theme === this.DARK ? "light" : "dark"} mode`
@@ -49,72 +51,123 @@ const ThemeManager = {
   },
 };
 
-// Typing effect for terminal section
-const TypingEffect = {
-  phrases: [
-    "echo 'Hello, World!'",
-    "npm run dev",
-    "git commit -m 'Initial commit'",
-    "cargo build --release",
-    "docker-compose up -d",
-    "kubectl get pods",
-    "nvim config.lua",
-    "rustc --version",
-  ],
-  typingSpeed: 80,
-  deletingSpeed: 40,
-  pauseDuration: 2000,
-  currentPhraseIndex: 0,
-  currentCharIndex: 0,
-  isDeleting: false,
-  element: null,
-
+// Panel management
+const PanelManager = {
   init() {
-    this.element = document.getElementById("typing-text");
-    if (this.element) {
-      this.type();
-    }
+    const panels = document.querySelectorAll(".panel");
+    panels.forEach((panel) => {
+      const header = panel.querySelector(".panel-header");
+      if (header) {
+        header.addEventListener("click", () => this.togglePanel(panel));
+      }
+    });
   },
 
-  type() {
-    const currentPhrase = this.phrases[this.currentPhraseIndex];
+  togglePanel(panel) {
+    const isExpanded = panel.classList.contains("expanded");
 
-    if (this.isDeleting) {
-      // Remove characters
-      this.element.textContent = currentPhrase.substring(
-        0,
-        this.currentCharIndex - 1
-      );
-      this.currentCharIndex--;
+    if (isExpanded) {
+      panel.classList.remove("expanded");
     } else {
-      // Add characters
-      this.element.textContent = currentPhrase.substring(
-        0,
-        this.currentCharIndex + 1
-      );
-      this.currentCharIndex++;
+      panel.classList.add("expanded");
+      // Initialize carousel if present and not already initialized
+      const carousel = panel.querySelector("[data-carousel]");
+      if (carousel && !carousel.dataset.initialized) {
+        CarouselManager.initCarousel(carousel);
+      }
     }
-
-    // Calculate next action timing
-    let timeout = this.isDeleting ? this.deletingSpeed : this.typingSpeed;
-
-    // Check if phrase is complete
-    if (!this.isDeleting && this.currentCharIndex === currentPhrase.length) {
-      // Pause at end of phrase
-      timeout = this.pauseDuration;
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.currentCharIndex === 0) {
-      // Move to next phrase
-      this.isDeleting = false;
-      this.currentPhraseIndex =
-        (this.currentPhraseIndex + 1) % this.phrases.length;
-    }
-
-    setTimeout(() => this.type(), timeout);
   },
 };
 
-// Navigation active state management
+// Carousel management
+const CarouselManager = {
+  init() {
+    // Initialize carousels that are already visible (in expanded panels)
+    document.querySelectorAll(".panel.expanded [data-carousel]").forEach((carousel) => {
+      this.initCarousel(carousel);
+    });
+  },
+
+  initCarousel(carousel) {
+    if (carousel.dataset.initialized) return;
+
+    const track = carousel.querySelector(".carousel-track");
+    const items = carousel.querySelectorAll(".carousel-item");
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const prevBtn = carousel.querySelector(".carousel-nav.prev");
+    const nextBtn = carousel.querySelector(".carousel-nav.next");
+
+    if (!track || items.length === 0) return;
+
+    let currentIndex = 0;
+
+    // Create dots
+    items.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = `carousel-dot${index === 0 ? " active" : ""}`;
+      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+      dot.addEventListener("click", () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateCarousel();
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+
+    carousel.dataset.initialized = "true";
+  },
+};
+
+// Navigation active state
 const NavigationManager = {
   init() {
     this.highlightCurrentPage();
@@ -128,33 +181,9 @@ const NavigationManager = {
       const href = link.getAttribute("href");
       const isActive =
         currentPath.endsWith(href) ||
-        (href === "index.html" && currentPath.endsWith("/"));
+        (href === "index.html" && (currentPath.endsWith("/") || currentPath === ""));
 
       link.classList.toggle("active", isActive);
-    });
-  },
-};
-
-// Scroll animations using Intersection Observer
-const ScrollAnimations = {
-  init() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Observe all fade-in elements
-    document.querySelectorAll(".fade-in").forEach((el) => {
-      observer.observe(el);
     });
   },
 };
@@ -162,10 +191,9 @@ const ScrollAnimations = {
 // Initialize all modules when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
   ThemeManager.init();
-  TypingEffect.init();
+  PanelManager.init();
+  CarouselManager.init();
   NavigationManager.init();
-  ScrollAnimations.init();
 });
 
-// Export for potential use in other modules
-export { ThemeManager, TypingEffect, NavigationManager, ScrollAnimations };
+export { ThemeManager, PanelManager, CarouselManager, NavigationManager };

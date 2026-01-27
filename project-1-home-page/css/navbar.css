@@ -8,6 +8,7 @@
   background: var(--navbar-background-color);
   height: var(--navbar-height);
   border-bottom: 2px dashed var(--border-color);
+  transition: background var(--transition-medium);
 }
 
 .navigation .container {
@@ -32,8 +33,9 @@
   color: var(--font-color-bright);
 }
 
-.navigation .brand-icon {
-  font-size: 1.5rem;
+.navigation .brand .logo {
+  width: 32px;
+  height: 32px;
 }
 
 .navigation .brand span {
@@ -62,7 +64,7 @@
   font-weight: 500;
   border-radius: var(--border-radius);
   border: 1px solid transparent;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .navigation .nav-link:hover {
@@ -79,6 +81,7 @@
 .theme-toggle {
   display: flex;
   align-items: center;
+  margin-left: 0.5rem;
 }
 
 .theme-toggle button {
@@ -87,11 +90,20 @@
   line-height: 1;
   background: transparent;
   border: 1px solid transparent;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-toggle button:hover {
   background: var(--button-background-color);
   border-color: var(--button-border-color);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 700px) {

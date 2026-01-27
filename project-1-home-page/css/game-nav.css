@@ -30,8 +30,13 @@
   text-decoration: none;
 }
 
-.navigation .brand-icon {
-  font-size: 1.5rem;
+.navigation .brand .logo {
+  width: 32px;
+  height: 32px;
+}
+
+.navigation .brand .icon {
+  filter: invert(1);
 }
 
 .navigation nav {
@@ -65,6 +70,36 @@
   padding-top: 60px;
 }
 
+/* Story section */
+#introduction-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.story-content {
+  margin-bottom: 1rem;
+}
+
+.story-content h2 {
+  margin-bottom: 1rem;
+}
+
+.story-content p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
 /* Back link */
 .back-link {
   margin-top: 2rem;
@@ -81,4 +116,78 @@
 .back-link:hover {
   color: white;
   border-color: var(--tokyo-night-fg-blue);
+}
+
+/* Game Footer */
+.game-footer {
+  background: var(--tokyo-night-bg-dark);
+  padding: 2rem 0;
+  border-top: 2px dashed var(--tokyo-night-fg-purple);
+}
+
+.game-footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game-footer .banner {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.game-footer .banner .icon {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+}
+
+.game-footer .split {
+  width: 100%;
+  border-top: 2px dashed var(--tokyo-night-fg-purple);
+  margin-bottom: 1rem;
+}
+
+.game-footer nav.links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-footer .footer-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--tokyo-night-bg-light);
+  border: 1px solid var(--tokyo-night-fg-purple);
+  border-radius: 10px;
+  color: var(--tokyo-night-fg-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.game-footer .footer-button:hover {
+  color: white;
+  border-color: var(--tokyo-night-fg-blue);
+}
+
+.game-footer .footer-button .icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+.game-footer .copyright {
+  color: var(--tokyo-night-fg-blue);
+  font-size: 0.85rem;
+  opacity: 0.7;
 }

@@ -22,13 +22,17 @@
     <header class="navigation">
       <div class="nav-container">
         <a href="index.html" class="brand">
-          <span class="brand-icon">&#127794;</span>
+          <object
+            type="image/svg+xml"
+            data="images/icons/arcade.svg"
+            class="logo icon"
+            aria-label="logo"
+          ></object>
           <span>Neil's Pine</span>
         </a>
         <nav>
           <a href="index.html" class="nav-link">Me</a>
           <a href="work.html" class="nav-link active">Game</a>
-          <a href="ai-page.html" class="nav-link">AI Page</a>
         </nav>
       </div>
     </header>
@@ -68,40 +72,128 @@
         </div>
 
         <section id="introduction-section">
-          <div class="description">
-            <div class="game">
-              <h2>Using Brow to Control</h2>
+          <div class="description story-section">
+            <div class="story-content">
+              <h2>The Story Behind This Game</h2>
               <p>
-                <strong>Brow Control</strong> lets you play the game using only
-                your eyebrows! Raise or lower your brows to control the
-                character and dodge incoming obstacles in our exciting
-                <em>Runner</em>
-                game.
+                This is a game that I wrote previously in Rust using the Bevy
+                game engine. Now I let AI bring it to the web and be able to
+                use <strong>MediaPipe</strong> and facial recognition by running
+                a machine learning model inside the web browser.
+              </p>
+              <p>
+                So now we can play with our <em>facial expressions</em>! Raise
+                your eyebrows to jump, lower them to duck. The entire face mesh
+                detection runs locally in your browser - no data is sent to any
+                server.
               </p>
             </div>
-            <div id="reload-page-div" class="webcam" style="display: none">
-              <h2>Camera Required</h2>
-              <p>
-                To play the game, please allow access to your webcam. If you
-                previously denied permission, try reloading the page and
-                granting access when prompted.
-              </p>
-            </div>
-            <div class="face-mesh">
-              <h2>About Face Mesh</h2>
-              <p>
-                Behind the scenes, we use advanced face mesh detection
-                technology to track your eyebrow movements in real time. Curious
-                how it works? Click the <em>Toggle Face Mesh</em> button to
-                visualize the tracking in action!
-              </p>
-            </div>
+          </div>
+          <div id="reload-page-div" class="webcam" style="display: none">
+            <h2>Camera Required</h2>
+            <p>
+              To play the game, please allow access to your webcam. If you
+              previously denied permission, try reloading the page and
+              granting access when prompted.
+            </p>
           </div>
         </section>
 
         <a href="index.html" class="back-link">&larr; Back to Home</a>
       </main>
     </div>
+
+    <footer class="game-footer">
+      <div class="footer-container">
+        <span class="banner">
+          <object
+            type="image/svg+xml"
+            data="images/icons/computer.svg"
+            class="icon"
+            aria-label="computer"
+          ></object>
+          <object
+            type="image/svg+xml"
+            data="images/icons/bug.svg"
+            class="icon"
+            aria-label="bug"
+          ></object>
+          <object
+            type="image/svg+xml"
+            data="images/icons/disk.svg"
+            class="icon"
+            aria-label="disk"
+          ></object>
+          <object
+            type="image/svg+xml"
+            data="images/icons/memory.svg"
+            class="icon"
+            aria-label="memory"
+          ></object>
+          <object
+            type="image/svg+xml"
+            data="images/icons/cpu.svg"
+            class="icon"
+            aria-label="cpu"
+          ></object>
+          <object
+            type="image/svg+xml"
+            data="images/icons/www.svg"
+            class="icon"
+            aria-label="www"
+          ></object>
+        </span>
+
+        <span class="split"></span>
+
+        <nav class="links">
+          <a
+            href="https://ko-fi.com/neilwang"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-button"
+          >
+            <object
+              type="image/svg+xml"
+              data="images/icons/coffee.svg"
+              class="icon"
+              aria-label="coffee"
+            ></object>
+            <span>Buy me a coffee</span>
+          </a>
+          <a
+            href="https://github.com/DriedYellowPeach"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-button"
+          >
+            <object
+              type="image/svg+xml"
+              data="images/icons/github.svg"
+              class="icon"
+              aria-label="github"
+            ></object>
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/neil-wang-b7849b310/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-button"
+          >
+            <object
+              type="image/svg+xml"
+              data="images/icons/linkedin.svg"
+              class="icon"
+              aria-label="linkedin"
+            ></object>
+            <span>LinkedIn</span>
+          </a>
+        </nav>
+
+        <p class="copyright">&copy; 2026 Neil Wang. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script type="module" src="game/scripts/mediapipe.js"></script>
     <script type="module" src="game/scripts/game.js"></script>

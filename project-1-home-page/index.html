@@ -6,33 +6,37 @@
     <meta name="author" content="Neil Wang" />
     <meta
       name="description"
-      content="Neil Wang's personal homepage - Software Developer passionate about system programming, graphics, and cloud-native technologies"
+      content="Neil Wang's personal homepage - Software Developer passionate about system programming, graphics, and Linux"
     />
     <meta name="theme-color" content="#181818" />
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/panels.css" />
     <title>Neil Wang | Home</title>
   </head>
   <body>
     <header class="navigation">
       <div class="container">
         <a href="index.html" class="brand">
-          <span class="brand-icon">&#127794;</span>
+          <object
+            type="image/svg+xml"
+            data="images/icons/arcade.svg"
+            class="logo icon"
+            aria-label="logo"
+          ></object>
           <span>Neil's Pine</span>
         </a>
         <nav>
           <a href="index.html" class="nav-link active">Me</a>
           <a href="work.html" class="nav-link">Game</a>
-          <a href="ai-page.html" class="nav-link">AI Page</a>
           <div class="theme-toggle">
             <button
               type="button"
               id="theme-toggle-btn"
               aria-label="Toggle theme"
             >
-              &#127769;
+              <span class="theme-icon"></span>
             </button>
           </div>
         </nav>
@@ -41,153 +45,76 @@
 
     <main>
       <div class="container">
-        <section class="page-header fade-in">
-          <h1>Hello! I'm Neil</h1>
-          <p class="subtitle">
-            Software Developer | Graphics Enthusiast | Cloud Native Explorer
-          </p>
-        </section>
-
-        <section class="fade-in fade-in-delay-1">
-          <h2>About Me</h2>
-          <div class="about-section">
-            <div class="content">
-              <p>
-                I'm Neil Wang, a passionate enthusiast of system programming,
-                cloud-native technologies, and computer graphics programming.
-                Currently, I am pursuing my Master's degree in Computer Science
-                at Northeastern University.
-              </p>
-              <p>
-                I love building things from scratch and understanding how
-                systems work at a low level. Whether it's implementing a ray
-                tracer in Rust or configuring my perfect Neovim setup, I enjoy
-                the process of crafting efficient and elegant solutions.
-              </p>
-            </div>
-            <div class="profile-image">
-              <img src="images/profile.jpg" alt="Neil Wang profile photo" />
-            </div>
-          </div>
-        </section>
-
-        <hr />
-
-        <section class="fade-in fade-in-delay-2">
-          <h2>My Interests</h2>
-          <div class="interests-grid">
-            <article class="interest-card">
-              <h3><span class="icon">&#128187;</span> Computer Graphics</h3>
-              <p>
-                I'm deeply interested in rendering techniques, ray tracing, and
-                real-time graphics. I've built a ray tracer in Rust and enjoy
-                exploring shader programming.
-              </p>
-            </article>
-
-            <article class="interest-card">
-              <h3><span class="icon">&#9881;</span> System Programming</h3>
-              <p>
-                Low-level programming fascinates me. I enjoy working with Rust
-                and C, understanding memory management, and building efficient
-                systems.
-              </p>
-            </article>
-
-            <article class="interest-card">
-              <h3><span class="icon">&#9729;</span> Cloud Native</h3>
-              <p>
-                I'm exploring Kubernetes, containerization, and distributed
-                systems. Building scalable and resilient applications is an
-                exciting challenge.
-              </p>
-            </article>
-
-            <article class="interest-card">
-              <h3><span class="icon">&#128690;</span> Cycling</h3>
-              <p>
-                Outside of coding, I love cycling. There's something therapeutic
-                about being on the road, and I've become quite skilled at fixing
-                flat tires!
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <hr />
-
-        <section class="fade-in fade-in-delay-3">
-          <h2>Skills</h2>
-          <ul class="skills-list">
-            <li>Rust</li>
-            <li>C/C++</li>
-            <li>JavaScript</li>
-            <li>TypeScript</li>
-            <li>Python</li>
-            <li>Go</li>
-            <li>OpenGL</li>
-            <li>WebGL</li>
-            <li>Docker</li>
-            <li>Kubernetes</li>
-            <li>Linux</li>
-            <li>Neovim</li>
-          </ul>
-        </section>
-
-        <hr />
-
-        <section>
-          <h2>Terminal</h2>
-          <div class="typing-container">
-            <span id="typing-text"></span>
-            <span class="typing-cursor"></span>
-          </div>
-        </section>
-
-        <hr />
-
-        <section>
-          <h2>Work Samples</h2>
-          <div class="work-samples-grid">
-            <article class="project-card">
-              <h3>&#127918; Brow Control</h3>
-              <p class="project-description">
-                An innovative game that lets you play using only your eyebrows!
-                Using MediaPipe face mesh detection, it tracks your eyebrow
-                movements in real-time to control the character.
-              </p>
-              <div class="project-tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">MediaPipe</span>
-                <span class="tag">WebGL</span>
+        <!-- About Me Section -->
+        <section class="section">
+          <h2 class="section-title">About Me</h2>
+          <div class="panels">
+            <!-- General Introduction Panel -->
+            <article class="panel expanded" data-panel="intro">
+              <div class="panel-header">
+                <h3 class="panel-title">General Introduction</h3>
+                <span class="panel-toggle">&#9660;</span>
               </div>
-              <a href="work.html" class="button">Play Game</a>
-            </article>
-
-            <article class="project-card">
-              <h3>&#127752; Ray Tracer</h3>
-              <p class="project-description">
-                A physically-based ray tracer built from scratch in Rust with
-                reflection, refraction, soft shadows, and global illumination.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Rust</span>
-                <span class="tag">Computer Graphics</span>
-                <span class="tag">Ray Tracing</span>
+              <div class="panel-content">
+                <div class="about-intro">
+                  <div class="profile-image">
+                    <img src="images/profile.jpg" alt="Neil Wang" />
+                  </div>
+                  <div class="intro-text">
+                    <h3>Hello! I'm Neil Wang</h3>
+                    <p>
+                      I'm a full-stack developer with experience at Alibaba and
+                      Bot Auto, specializing in React, Go, Rust, and cloud
+                      infrastructure. Currently pursuing my Master's in Computer
+                      Science at Northeastern University.
+                    </p>
+                    <p>
+                      I love building things from scratch, whether it's a ray
+                      tracer in Rust, a perfectly configured Neovim IDE, or a
+                      beautifully riced Arch Linux desktop. I believe in
+                      understanding systems at their core.
+                    </p>
+                  </div>
+                </div>
               </div>
             </article>
 
-            <article class="project-card">
-              <h3>&#128421; 3D Spinning Box</h3>
-              <p class="project-description">
-                A software renderer creating a shiny spinning box effect using
-                only image processing and matrix multiplication. No GPU
-                required!
-              </p>
-              <div class="project-tags">
-                <span class="tag">Rust</span>
-                <span class="tag">Linear Algebra</span>
-                <span class="tag">Software Rendering</span>
+            <!-- Experience Panel -->
+            <article class="panel" data-panel="experience">
+              <div class="panel-header">
+                <h3 class="panel-title">Experience</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="experience-list">
+                  <div class="experience-item">
+                    <h4>Full Stack Developer Intern</h4>
+                    <span class="company">Bot Auto</span>
+                    <span class="date">2025 | Houston, TX</span>
+                    <p>
+                      Autonomous driving simulation platform. Full-stack
+                      development with React, WebGPU, and Kubernetes.
+                    </p>
+                  </div>
+                  <div class="experience-item">
+                    <h4>Software Engineer</h4>
+                    <span class="company">Alibaba</span>
+                    <span class="date">2021 - 2023 | Guangzhou, China</span>
+                    <p>
+                      Cloud infrastructure and developer tools. Built web
+                      platforms, CI/CD pipelines, and backend systems in Go.
+                    </p>
+                  </div>
+                  <div class="experience-item">
+                    <h4>Graduate Student</h4>
+                    <span class="company">Northeastern University</span>
+                    <span class="date">2024 - 2026 | San Jose, CA</span>
+                    <p>
+                      M.S. in Computer Science. Full-stack development, cloud
+                      infrastructure, and computer graphics.
+                    </p>
+                  </div>
+                </div>
               </div>
             </article>
           </div>
@@ -195,28 +122,202 @@
 
         <hr />
 
-        <section>
-          <h2>Contact</h2>
-          <div class="contact-links">
-            <a
-              href="https://github.com/neilwang"
-              class="contact-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>&#128279;</span> GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/neilwang"
-              class="contact-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>&#128101;</span> LinkedIn
-            </a>
-            <a href="mailto:wang.neil@northeastern.edu" class="contact-link">
-              <span>&#9993;</span> Email
-            </a>
+        <!-- My Projects Section -->
+        <section class="section">
+          <h2 class="section-title">My Projects</h2>
+          <div class="panels">
+            <!-- Neovim IDE Panel -->
+            <article class="panel" data-panel="neovim">
+              <div class="panel-header">
+                <h3 class="panel-title">Neovim IDE</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="carousel" data-carousel>
+                  <div class="carousel-track">
+                    <div class="carousel-item">
+                      <div class="carousel-item-image">
+                        <img
+                          src="images/neovim/welcome.png"
+                          alt="Neovim welcome screen with ASCII art"
+                        />
+                      </div>
+                      <div class="carousel-item-text">
+                        <h4>Custom ASCII Art Dashboard</h4>
+                        <p>
+                          This is the ASCII art I created for my Neovim welcome
+                          screen. Every detail is crafted to create a unique and
+                          personal development environment that inspires
+                          creativity.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="carousel-item reverse">
+                      <div class="carousel-item-image">
+                        <img
+                          src="images/neovim/ide.png"
+                          alt="Neovim as a full-featured IDE"
+                        />
+                      </div>
+                      <div class="carousel-item-text">
+                        <h4>Full-Featured IDE</h4>
+                        <p>
+                          With the powerful Neovim plugin system and Language
+                          Server Protocol, you can create a full-fledged IDE
+                          that's faster than VSCode or any other code editor.
+                          Instant startup, zero lag, infinite customization.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-nav prev" aria-label="Previous">
+                    &#10094;
+                  </button>
+                  <button class="carousel-nav next" aria-label="Next">
+                    &#10095;
+                  </button>
+                  <div class="carousel-dots"></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Arch Linux Ricing Panel -->
+            <article class="panel" data-panel="arch">
+              <div class="panel-header">
+                <h3 class="panel-title">Arch Linux Ricing</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="carousel" data-carousel>
+                  <div class="carousel-track">
+                    <div class="carousel-item">
+                      <div class="carousel-item-image">
+                        <img
+                          src="images/arch/overview.png"
+                          alt="Arch Linux desktop overview"
+                        />
+                      </div>
+                      <div class="carousel-item-text">
+                        <h4>The Ultimate Desktop Environment</h4>
+                        <p>
+                          With thousands of lines of configuration, I created
+                          the ultimate desktop environment. As a heavy user of
+                          Windows and macOS, I can assure you that Arch Linux is
+                          the best! Complete control, blazing performance, and
+                          endless customization.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="carousel-item reverse">
+                      <div class="carousel-item-image">
+                        <img
+                          src="images/arch/launcher.png"
+                          alt="Custom application launcher"
+                        />
+                      </div>
+                      <div class="carousel-item-text">
+                        <h4>Apple Liquid Glass Launcher</h4>
+                        <p>
+                          Built with Rofi dmenu and custom CSS styling inspired
+                          by Apple's liquid glass aesthetic. Smooth animations,
+                          blur effects, and a beautiful interface that rivals
+                          any commercial operating system.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-nav prev" aria-label="Previous">
+                    &#10094;
+                  </button>
+                  <button class="carousel-nav next" aria-label="Next">
+                    &#10095;
+                  </button>
+                  <div class="carousel-dots"></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Ray Tracer Panel -->
+            <article class="panel" data-panel="raytracer">
+              <div class="panel-header">
+                <h3 class="panel-title">Ray Tracer</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="carousel" data-carousel>
+                  <div class="carousel-item">
+                    <div class="carousel-item-image">
+                      <img
+                        src="images/ray-tracer/showcase_diffuse.png"
+                        alt="Ray tracer diffuse rendering"
+                      />
+                    </div>
+                    <div class="carousel-item-text">
+                      <h4>Diffuse Materials</h4>
+                      <p>
+                        Perfectly matte surfaces with realistic light scattering.
+                        Built from scratch in Rust with mathematical precision.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item reverse">
+                    <div class="carousel-item-image">
+                      <img
+                        src="images/ray-tracer/showcase_reflection.png"
+                        alt="Ray tracer reflection rendering"
+                      />
+                    </div>
+                    <div class="carousel-item-text">
+                      <h4>Mirror Reflections</h4>
+                      <p>
+                        Perfect mirror-like reflections with recursive ray
+                        bouncing. Watch the world reflect infinitely in polished
+                        metal spheres.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="carousel-item-image">
+                      <img
+                        src="images/ray-tracer/showcase_refraction.png"
+                        alt="Ray tracer refraction rendering"
+                      />
+                    </div>
+                    <div class="carousel-item-text">
+                      <h4>Glass Refraction</h4>
+                      <p>
+                        Physically accurate light bending through transparent
+                        materials using Snell's law. Glass spheres that truly
+                        look like glass.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item reverse">
+                    <div class="carousel-item-image">
+                      <img
+                        src="images/ray-tracer/showcase_specular.png"
+                        alt="Ray tracer specular rendering"
+                      />
+                    </div>
+                    <div class="carousel-item-text">
+                      <h4>Specular Highlights</h4>
+                      <p>
+                        Shiny surfaces with bright specular highlights using the
+                        Phong reflection model. The finishing touch that brings
+                        renders to life.
+                      </p>
+                    </div>
+                  </div>
+                  <button class="carousel-nav prev" aria-label="Previous">
+                    &#10094;
+                  </button>
+                  <button class="carousel-nav next" aria-label="Next">
+                    &#10095;
+                  </button>
+                  <div class="carousel-dots"></div>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
       </div>
@@ -224,8 +325,131 @@
 
     <footer>
       <div class="container">
-        <p>&copy; 2026 Neil Wang. All rights reserved.</p>
-        <p>Built with vanilla HTML, CSS, and JavaScript</p>
+        <section>
+          <span class="banner">
+            <object
+              type="image/svg+xml"
+              data="images/icons/computer.svg"
+              class="icon"
+              aria-label="computer"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/bug.svg"
+              class="icon"
+              aria-label="bug"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/disk.svg"
+              class="icon"
+              aria-label="disk"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/memory.svg"
+              class="icon"
+              aria-label="memory"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/cpu.svg"
+              class="icon"
+              aria-label="cpu"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/www.svg"
+              class="icon"
+              aria-label="www"
+            ></object>
+          </span>
+
+          <span class="split"></span>
+
+          <nav class="links">
+            <a
+              href="https://ko-fi.com/neilwang"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button small"
+            >
+              <object
+                type="image/svg+xml"
+                data="images/icons/coffee.svg"
+                class="icon"
+                aria-label="coffee"
+              ></object>
+              <span>Buy me a coffee</span>
+            </a>
+            <a
+              href="https://github.com/DriedYellowPeach"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button small"
+            >
+              <object
+                type="image/svg+xml"
+                data="images/icons/github.svg"
+                class="icon"
+                aria-label="github"
+              ></object>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/neil-wang-b7849b310/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button small"
+            >
+              <object
+                type="image/svg+xml"
+                data="images/icons/linkedin.svg"
+                class="icon"
+                aria-label="linkedin"
+              ></object>
+              <span>LinkedIn</span>
+            </a>
+          </nav>
+
+          <span class="ack-title">Built With</span>
+          <nav class="ack">
+            <a
+              href="https://neovim.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="images/icons/nvim.png" alt="Neovim" />
+              Neovim
+            </a>
+            <a
+              href="https://www.rust-lang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="images/icons/rust.png" alt="Rust" />
+              Rust
+            </a>
+            <a
+              href="https://www.lazyvim.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="images/icons/lazy.svg" alt="LazyVim" />
+              LazyVim
+            </a>
+            <a
+              href="https://alacritty.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="images/icons/alacritty.png" alt="Alacritty" />
+              Alacritty
+            </a>
+          </nav>
+
+          <p class="copyright">&copy; 2026 Neil Wang. All rights reserved.</p>
+        </section>
       </div>
     </footer>
 

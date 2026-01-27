@@ -23,6 +23,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background var(--transition-medium), color var(--transition-medium);
 }
 
 /* Container */
@@ -57,6 +58,7 @@ h5 {
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: 600;
+  transition: color var(--transition-medium);
 }
 
 h1 {
@@ -72,7 +74,7 @@ h2 {
 
 h3 {
   font-size: 1.4rem;
-  color: var(--light-yellow);
+  color: var(--navbar-highlight);
 }
 
 /* Paragraphs */
@@ -85,7 +87,7 @@ p {
 a {
   color: var(--link-color);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
@@ -113,14 +115,23 @@ button,
   border-radius: var(--border-radius);
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 button:hover,
 .button:hover {
   color: var(--navbar-highlight);
   border-color: var(--navbar-highlight);
+}
+
+button.small,
+.button.small {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
 }
 
 /* Images */
@@ -136,77 +147,151 @@ hr {
   margin: 2rem 0;
 }
 
-/* Sections */
-section {
-  margin: 2rem 0;
-}
-
-/* Cards */
-.card {
-  background: var(--card-background-color);
-  border-radius: var(--border-radius);
-  padding: 1.5rem;
-  border: 1px solid var(--border-color);
-  margin: 1rem 0;
-}
-
-/* Flex utilities */
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.gap-1 {
-  gap: 1rem;
-}
-
-.gap-2 {
-  gap: 2rem;
-}
-
-/* Grid utilities */
-.grid {
-  display: grid;
-}
-
-.grid-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media screen and (max-width: 700px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
+/* Icon styles */
+.icon {
+  filter: var(--svg-color-filter);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
 }
 
 /* Footer */
 footer {
   background: var(--navbar-background-color);
   padding: 2rem 0;
-  text-align: center;
-  color: var(--font-color-muted);
   border-top: 2px dashed var(--border-color);
+  transition: background var(--transition-medium);
 }
 
-footer a {
-  color: var(--font-color-muted);
+footer section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .banner {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+footer .banner .icon {
+  width: 30px;
+  height: 30px;
+}
+
+footer .split {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  width: 100%;
+  border-top: 2px dashed var(--border-color);
+  align-self: stretch;
+}
+
+footer nav {
+  display: flex;
+  gap: 1rem;
+  margin: 0 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer nav.links {
+  margin-bottom: 2rem;
+}
+
+footer a,
+footer span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--font-color-base);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+footer a:hover span {
+  color: var(--footer-highlight);
 }
 
 footer a:hover {
-  color: var(--navbar-highlight);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+footer a.button:hover {
+  text-decoration: none;
+}
+
+footer .ack-title {
+  color: var(--font-color-base);
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+footer nav.ack {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 500px;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px dashed var(--border-color);
+}
+
+footer nav.ack img {
+  height: 22px;
+  width: auto;
+}
+
+footer nav.ack img.special {
+  filter: var(--footer-special-filter);
+}
+
+footer nav.ack a {
+  font-size: 0.85rem;
+}
+
+footer .copyright {
+  color: var(--font-color-muted);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+  footer nav.links {
+    margin-bottom: 1rem;
+  }
+
+  footer nav.links .button.small {
+    padding: 0.3rem 0.5rem;
+  }
+
+  footer nav.links .button.small span {
+    font-size: 0.8rem;
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }

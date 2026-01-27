@@ -1,3 +1,4 @@
+/* Base Colors */
 :root {
   /* Theme Colors */
   --green: #5eddac;
@@ -20,7 +21,24 @@
   --gray-9: #1f1f1f;
   --gray-10: #181818;
 
-  /* Dark Theme */
+  /* Sizes */
+  --content-width: 960px;
+  --navbar-height: 60px;
+  --border-radius: 12px;
+
+  /* Font Family */
+  --font-family-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-mono: "Fira Code", "Consolas", monospace;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Dark Theme (default) */
+:root,
+[data-theme="dark"] {
   --background-color: var(--gray-10);
   --navbar-background-color: var(--gray-9);
   --card-background-color: var(--gray-9);
@@ -31,7 +49,6 @@
   --font-color-bright: white;
 
   --border-color: var(--gray-6);
-  --border-radius: 12px;
 
   --button-background-color: var(--gray-8);
   --button-border-color: var(--gray-6);
@@ -42,12 +59,85 @@
   --navbar-color: var(--gray-4);
   --navbar-color-hover: white;
   --navbar-highlight: var(--yellow);
+  --footer-highlight: var(--yellow);
 
-  /* Sizes */
-  --content-width: 960px;
-  --navbar-height: 60px;
+  --svg-color-filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(30deg)
+    brightness(113%) contrast(93%);
+  --footer-special-filter: brightness(0) invert(1);
 
-  /* Font Family */
-  --font-family-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --font-family-mono: "Fira Code", "Consolas", monospace;
+  --panel-background: var(--gray-9);
+  --panel-border: var(--gray-7);
+  --panel-hover-border: var(--yellow);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --background-color: var(--gray-2);
+  --navbar-background-color: var(--gray-0);
+  --card-background-color: var(--gray-0);
+
+  --font-color-heading: var(--gray-9);
+  --font-color-base: var(--gray-7);
+  --font-color-muted: var(--gray-6);
+  --font-color-bright: var(--gray-10);
+
+  --border-color: var(--gray-4);
+
+  --button-background-color: var(--gray-1);
+  --button-border-color: var(--gray-4);
+
+  --link-color: #0066cc;
+  --link-hover-color: var(--gray-10);
+
+  --navbar-color: var(--gray-7);
+  --navbar-color-hover: var(--gray-10);
+  --navbar-highlight: #0066cc;
+  --footer-highlight: #0066cc;
+
+  --svg-color-filter: invert(11%) sepia(23%) saturate(0%) hue-rotate(147deg)
+    brightness(101%) contrast(100%);
+  --footer-special-filter: brightness(0) invert(0);
+
+  --panel-background: white;
+  --panel-border: var(--gray-3);
+  --panel-hover-border: #0066cc;
+}
+
+/* Game Theme (Tokyo Night) */
+[data-theme="game"] {
+  --tokyo-bg-dark: #1e2030;
+  --tokyo-bg-light: #3b4261;
+  --tokyo-fg-blue: #7dcfff;
+  --tokyo-fg-deep-blue: #7aa2f7;
+  --tokyo-fg-purple: #9d7cd8;
+
+  --background-color: var(--tokyo-bg-light);
+  --navbar-background-color: var(--tokyo-bg-dark);
+  --card-background-color: var(--tokyo-bg-dark);
+
+  --font-color-heading: white;
+  --font-color-base: var(--tokyo-fg-blue);
+  --font-color-muted: var(--tokyo-fg-deep-blue);
+  --font-color-bright: white;
+
+  --border-color: var(--tokyo-fg-purple);
+
+  --button-background-color: var(--tokyo-bg-light);
+  --button-border-color: var(--tokyo-fg-purple);
+
+  --link-color: var(--tokyo-fg-blue);
+  --link-hover-color: white;
+
+  --navbar-color: var(--tokyo-fg-blue);
+  --navbar-color-hover: white;
+  --navbar-highlight: var(--tokyo-fg-purple);
+  --footer-highlight: var(--tokyo-fg-purple);
+
+  --svg-color-filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(30deg)
+    brightness(113%) contrast(93%);
+  --footer-special-filter: brightness(0) invert(1);
+
+  --panel-background: var(--tokyo-bg-dark);
+  --panel-border: var(--tokyo-bg-light);
+  --panel-hover-border: var(--tokyo-fg-purple);
 }
