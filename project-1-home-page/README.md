@@ -1,3 +1,12 @@
+<!-- 
+Hey Neil! Love the website! Very straight forward but nicely stylized! Makes it very easy to navigate and learn more about your background! A few things I noted as part of my review!
+- Love all the polish you put in to getting icons/themes and integrating your game into the website, as well as helpful links at the footer!
+- We needed 3 pages for our website, 2 without AI and 1 with. I'm not sure which is which but I only see 2 webpages.
+- I'm not able to see your user stories, user personas, or wireframes
+- Regarding AI usage, you're missing statements regarding which prompts you've used
+- I could be wrong but your design documentation should also include links to your presentation and slides
+- Overall great project and I'm excited to see what else you come up with this semester!
+-->
 # Neil's Personal Homepage
 
 A personal homepage built with vanilla HTML5, CSS3, and ES6+ JavaScript for CS5610 Web Development.
