@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Neil Wang" />
+    <meta
+      name="description"
+      content="Design documentation for Neil Wang's personal homepage project"
+    />
+    <meta name="theme-color" content="#181818" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/panels.css" />
+    <title>Design | Neil Wang</title>
+  </head>
+  <body>
+    <header class="navigation">
+      <div class="container">
+        <a href="index.html" class="brand">
+          <object
+            type="image/svg+xml"
+            data="images/icons/arcade.svg"
+            class="logo icon"
+            aria-label="logo"
+          ></object>
+          <span>Neil's Pine</span>
+        </a>
+        <nav>
+          <a href="index.html" class="nav-link">Me</a>
+          <a href="work.html" class="nav-link">Game</a>
+          <a href="design.html" class="nav-link active">Design</a>
+          <div class="theme-toggle">
+            <button
+              type="button"
+              id="theme-toggle-btn"
+              aria-label="Toggle theme"
+            >
+              <span class="theme-icon"></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- User Stories Section -->
+        <section class="section">
+          <h2 class="section-title">User Stories</h2>
+          <div class="panels">
+            <article class="panel expanded" data-panel="stories">
+              <div class="panel-header">
+                <h3 class="panel-title">Stories</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <ul class="story-list">
+                  <li>As a visitor, I want to learn about Neil's background so that I can understand his skills and experience.</li>
+                  <li>As a recruiter, I want to see Neil's projects so that I can evaluate his technical abilities.</li>
+                  <li>As a visitor, I want to play a game using facial expressions so that I can have a unique interactive experience.</li>
+                  <li>As a user, I want to toggle between dark and light themes so that I can view the site comfortably.</li>
+                  <li>As a mobile user, I want responsive design so that I can browse on any device.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- User Personas Section -->
+        <section class="section">
+          <h2 class="section-title">User Personas</h2>
+          <div class="panels">
+            <article class="panel expanded" data-panel="persona-alex">
+              <div class="panel-header">
+                <h3 class="panel-title">Alex - The Curious Developer</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="persona-content">
+                  <p><strong>Age:</strong> 25</p>
+                  <p><strong>Occupation:</strong> Software Developer</p>
+                  <p><strong>Goals:</strong> Explore how facial recognition can be integrated into web applications. Learn about WebAssembly and browser-based ML.</p>
+                  <p><strong>Frustrations:</strong> Complex documentation, slow-loading demos, lack of source code access.</p>
+                  <p><strong>Bio:</strong> Alex is a software developer interested in web technologies and machine learning. They want to explore how facial recognition can work without server-side processing.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel expanded" data-panel="persona-jordan">
+              <div class="panel-header">
+                <h3 class="panel-title">Jordan - The Casual Gamer</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="persona-content">
+                  <p><strong>Age:</strong> 30</p>
+                  <p><strong>Occupation:</strong> Marketing Manager</p>
+                  <p><strong>Goals:</strong> Find unique gaming experiences to share with friends. Try new control schemes.</p>
+                  <p><strong>Frustrations:</strong> Games that require complex setup, unclear instructions, poor mobile support.</p>
+                  <p><strong>Bio:</strong> Jordan is a casual gamer looking for unique gaming experiences. They enjoy trying new control schemes and sharing interesting games with friends.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel" data-panel="persona-sam">
+              <div class="panel-header">
+                <h3 class="panel-title">Sam - The Hiring Manager</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="persona-content">
+                  <p><strong>Age:</strong> 40</p>
+                  <p><strong>Occupation:</strong> Engineering Manager</p>
+                  <p><strong>Goals:</strong> Quickly assess candidate skills and project quality. Find evidence of clean code and good design.</p>
+                  <p><strong>Frustrations:</strong> Portfolios without code samples, lack of project context, broken demos.</p>
+                  <p><strong>Bio:</strong> Sam reviews many portfolios weekly and appreciates clean, well-documented projects that demonstrate real skills.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Presentation Section -->
+        <section class="section">
+          <h2 class="section-title">Presentation</h2>
+          <div class="panels">
+            <article class="panel expanded" data-panel="presentation">
+              <div class="panel-header">
+                <h3 class="panel-title">Project Presentation</h3>
+                <span class="panel-toggle">&#9660;</span>
+              </div>
+              <div class="panel-content">
+                <div class="presentation-links">
+                  <p>View the project presentation materials:</p>
+                  <ul class="story-list">
+                    <li><a href="https://youtu.be/4HEZj_j-IJQ" target="_blank" rel="noopener noreferrer">Video Presentation on YouTube</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1EIAJgt50r9dKVxeADwdfB63w4kWrgj3-AmmgUyXTYAM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Google Slides Presentation</a></li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <section>
+          <span class="banner">
+            <object
+              type="image/svg+xml"
+              data="images/icons/computer.svg"
+              class="icon"
+              aria-label="computer"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/bug.svg"
+              class="icon"
+              aria-label="bug"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/disk.svg"
+              class="icon"
+              aria-label="disk"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/memory.svg"
+              class="icon"
+              aria-label="memory"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/cpu.svg"
+              class="icon"
+              aria-label="cpu"
+            ></object>
+            <object
+              type="image/svg+xml"
+              data="images/icons/www.svg"
+              class="icon"
+              aria-label="www"
+            ></object>
+          </span>
+
+          <span class="split"></span>
+
+          <nav class="links">
+            <a
+              href="https://ko-fi.com/neilwang"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button small"
+            >
+              <object
+                type="image/svg+xml"
+                data="images/icons/coffee.svg"
+                class="icon"
+                aria-label="coffee"
+              ></object>
+              <span>Buy me a coffee</span>
+            </a>
+            <a
+              href="https://github.com/DriedYellowPeach"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button small"
+            >
+              <object
+                type="image/svg+xml"
+                data="images/icons/github.svg"
+                class="icon"
+                aria-label="github"
+              ></object>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/neil-wang-b7849b310/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button small"
+            >
+              <object
+                type="image/svg+xml"
+                data="images/icons/linkedin.svg"
+                class="icon"
+                aria-label="linkedin"
+              ></object>
+              <span>LinkedIn</span>
+            </a>
+          </nav>
+
+          <p class="copyright">&copy; 2026 Neil Wang. All rights reserved.</p>
+        </section>
+      </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

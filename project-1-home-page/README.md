@@ -143,7 +143,20 @@ This project was developed with assistance from Claude (Anthropic). The AI was u
   - Game integration with MediaPipe facial recognition
   - README documentation
 
+### Prompts Used
+
+- "Help me create a personal homepage with dark/light theme toggle"
+- "Create expandable panels with smooth CSS transitions for my about page"
+- "Make a webpage to embed my Bevy game compiled to WebAssembly"
+- "Integrate MediaPipe face mesh detection to control the game with eyebrow movements"
+- "Style the page using Tokyo Night color scheme for the game section"
+
 All final decisions, refinements, and code reviews were made by the human developer.
+
+## Presentation
+
+- **Video**: [Project Presentation on YouTube](https://youtu.be/4HEZj_j-IJQ)
+- **Slides**: [Google Slides Presentation](https://docs.google.com/presentation/d/1EIAJgt50r9dKVxeADwdfB63w4kWrgj3-AmmgUyXTYAM/edit?usp=sharing)
 
 ## License
 
